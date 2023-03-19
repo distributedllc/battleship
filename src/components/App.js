@@ -133,7 +133,7 @@ const Nav = ({ switchMode, switchSoundMode, sound }) => {
       <div className="header-wrapper">
         <Link to="/" className="header" onClick={doubleCheck}>
           <h1>
-            <span>Pointer</span>
+            <span>Battleship</span>
           </h1>
         </Link>
         <img src="/static/logo.svg" className="header-icon" />
@@ -184,11 +184,11 @@ const Nav = ({ switchMode, switchSoundMode, sound }) => {
         </nav>
       </div>
       <div className="subheader">
-        <span>A simple agile pointing tool.</span>
+        <span>...</span>
       </div>
       {room && (
         <div>
-          <h2>Thanks for using pointer!</h2>
+          <h2>Thanks for playing!</h2>
           <p>You have been removed for being idle for over one hour...</p>
           <p>
             If this was a mistake, you can rejoin your room{" "}
@@ -243,21 +243,6 @@ const Footer = () => {
 const About = () => {
   return (
     <>
-      <h2>About</h2>
-      <p>This is a free pointing tool, for agile/scrum story planning.</p>
-      <p>Created by Patrick Simpson.</p>
-      <p></p>
-      <p>
-        You can read about{" "}
-        <a href="https://github.com/patricksimpson/pointer/blob/master/HOWTO.md">
-          using pointer here
-        </a>
-        . This project is{" "}
-        <a href="https://github.com/patricksimpson/pointer">
-          open source on GitHub
-        </a>
-        .
-      </p>
       <h2>Support</h2>
       <p>This tool is free to use, enjoy!</p>
       <p>

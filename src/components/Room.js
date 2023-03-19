@@ -12,10 +12,16 @@ const jsConfetti = new JSConfetti();
 const ROOM_TIMEOUT = 60 * 60 * 1000;
 const ROOM_TIMEOUT_TWO = 1 * 6 * 1000;
 
+let board = [];
+for(let i = 0; i < 10; i++) {
+  board.push(Array(10).fill(null));
+}
+
 const Room = () => {
   let { roomId } = useParams();
   let socket;
   let isNameSet = false;
+  console.log(board);
   const inactivityTime = () => {
     let time;
     document.onmousemove = resetTimer;
@@ -351,8 +357,7 @@ const Room = () => {
           maxLength="26"
           placeholder="name"
         />
-        <button onClick={submitUpdateName}>Join as Voter</button>
-        <button onClick={joinAsObserver}>Join as Observer</button>
+        <button onClick={submitUpdateName}>Join</button>
       </form>
     );
   };
@@ -467,18 +472,30 @@ const Vote = ({
       </div>
       {!observer && (
         <div className="vote-control">
-          {voteSequence.map((v, i) => (
-            <button
-              key={`key-${v.toString()}`}
-              className={`vote-button ${voteClass(v, i)}`}
-              onClick={() => castVote(v)}
-            >
-              {v ? v : "Remove Vote"}
-            </button>
-          ))}
+          <Board />
+          {/* {voteSequence.map((v, i) => ( */}
+          {/*   <button */}
+          {/*     key={`key-${v.toString()}`} */}
+          {/*     className={`vote-button ${voteClass(v, i)}`} */}
+          {/*     onClick={() => castVote(v)} */}
+          {/*   > */}
+          {/*     {v ? v : "Remove Vote"} */}
+          {/*   </button> */}
+          {/* ))} */}
         </div>
       )}
     </>
+  );
+};
+
+const Board = () => {
+  return (
+    <>
+      <div>Board</div>
+      <div>
+        {board.map((row) => (row.length))}
+        </div>
+     </>
   );
 };
 
